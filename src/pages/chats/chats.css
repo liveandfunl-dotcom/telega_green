@@ -1,0 +1,34 @@
+.chats__left {
+    position: absolute;
+    left: 1.5vw;
+    width: 34vw;
+    bottom: 1.5vh;
+    top: 1.5vh;
+    background-color: #fff;
+    z-index: 1;
+    border-radius: 15px
+}
+
+.chats__new {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--selection-color);
+    background-image: url('../../assets/img/add-contact.svg');
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 1vh;
+    right: 1vw;
+    cursor: pointer;
+}
+
+.chats__new:hover {
+    background-color: var(--selection-color-hovered);
+}
+
+.chats__list {
+    margin: 10px;
+    position: relative;
+}

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { setCredentials } from '../../api';
 
 import Tinput from '../../components/tinput/Tinput';
+
 import './auth.css';
 
 function Authenticate() {
@@ -14,8 +16,7 @@ function Authenticate() {
         const token = apiTokenInstance.trim();
         if (!id || !token) return;
 
-        localStorage.setItem('idInstance', id);
-        localStorage.setItem('apiTokenInstance', token);
+        setCredentials({ idInstance: id, apiTokenInstance: token });
         navigate('/chats/0', { replace: true });// replace location history
     };
 
