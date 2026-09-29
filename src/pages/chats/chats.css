@@ -1,0 +1,54 @@
+.chats__left {
+    position: absolute;
+    left: 1.5vw;
+    width: 34vw;
+    bottom: 1.5vh;
+    top: 1.5vh;
+    background-color: #fff;
+    z-index: 1;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chats__right {
+    position: absolute;
+    left: 37vw;
+    right: 1.5vw;
+    bottom: 1.5vh;
+    top: 1.5vh;
+    z-index: 1;
+}
+
+.chats__new {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--selection-color);
+    background-image: url('../../assets/img/add-contact.svg');
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 1vh;
+    right: 1vw;
+    cursor: pointer;
+}
+
+.chats__new:hover {
+    background-color: var(--selection-color-hovered);
+}
+
+.chats__list {
+    margin: 10px;
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-bottom: calc(48px + 1vh);
+}
+
+.chats__error {
+    color: #e53935;
+    font-size: 14px;
+}
