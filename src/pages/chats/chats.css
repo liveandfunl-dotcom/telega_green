@@ -11,6 +11,15 @@
     flex-direction: column;
 }
 
+.chats__right {
+    position: absolute;
+    left: 37vw;
+    right: 1.5vw;
+    bottom: 1.5vh;
+    top: 1.5vh;
+    z-index: 1;
+}
+
 .chats__new {
     width: 48px;
     height: 48px;

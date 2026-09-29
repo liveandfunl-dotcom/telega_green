@@ -3,10 +3,6 @@ export interface Credentials {
   apiTokenInstance: string;
 }
 
-export interface StateInstanceResponse {
-  stateInstance: string;
-}
-
 export type ChatType = 'user' | 'group' | 'supergroup' | 'channel' | 'bot';
 
 export interface ChatItem {

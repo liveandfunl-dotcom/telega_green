@@ -6,11 +6,10 @@ type TinputProps = {
     value?: string;
     onChange?: (value: string) => void;
     name?: string;
-    type?: 'text' | 'password';
     ref?: Ref<HTMLInputElement>;
 };
 
-function Tinput({ label, value, onChange, name, type = 'text', ref }: TinputProps) {
+function Tinput({ label, value, onChange, name, ref }: TinputProps) {
     const id = useId();
 
     return (
@@ -19,7 +18,7 @@ function Tinput({ label, value, onChange, name, type = 'text', ref }: TinputProp
                 id={id}
                 ref={ref}
                 className="tinput__field"
-                type={type}
+                type="text"
                 name={name}
                 value={value}
                 autoComplete="off"

@@ -6,7 +6,7 @@ export const getChats = (signal?: AbortSignal) => {
 };
 
 export const getChatHistory = (chatId: string, count = 10, signal?: AbortSignal) => {
-  request<ChatHistoryMessage[]>('getChatHistory', {
+  return request<ChatHistoryMessage[]>('getChatHistory', {
     httpMethod: 'POST',
     body: { chatId, count },
     signal,

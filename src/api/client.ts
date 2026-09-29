@@ -5,19 +5,25 @@ interface RequestOptions {
   httpMethod?: 'GET' | 'POST' | 'DELETE';
   body?: unknown;
   suffix?: string | number;
+  query?: Record<string, string | number>;
   signal?: AbortSignal;
 }
 
-export const buildUrl = (method: string, suffix?: string | number) => {
+const buildUrl = (method: string, suffix?: string | number, query?: RequestOptions['query']) => {
   const credentials = getCredentials();
   if (!credentials) {
     throw new Error('idInstance and apiTokenInstance are not set');
   }
 
   const { idInstance, apiTokenInstance } = credentials;
-  const url = `${API_URL}/waInstance${idInstance}/${method}/${apiTokenInstance}`;
+  let url = `${API_URL}/waInstance${idInstance}/${method}/${apiTokenInstance}`;
+  if (suffix !== undefined) url += `/${suffix}`;
+  if (query) {
+    const params = new URLSearchParams(Object.entries(query).map(([key, value]) => [key, String(value)]));
+    url += `?${params}`;
+  }
 
-  return suffix === undefined ? url : `${url}/${suffix}`;
+  return url;
 };
 
 const errorText = (status: number, serverMessage?: string) => {
@@ -44,9 +50,9 @@ const parseBody = async (response: Response): Promise<unknown> => {
 
 export const request = async <T>(
   method: string,
-  { httpMethod = 'GET', body, suffix, signal }: RequestOptions = {},
+  { httpMethod = 'GET', body, suffix, query, signal }: RequestOptions = {},
 ): Promise<T> => {
-  const url = buildUrl(method, suffix);
+  const url = buildUrl(method, suffix, query);
 
   let response: Response;
 

@@ -19,11 +19,4 @@ export const setCredentials = (credentials: Credentials) => {
   current = credentials;
 };
 
-export const clearCredentials = () => {
-  localStorage.removeItem(ID_KEY);
-  localStorage.removeItem(TOKEN_KEY);
-
-  current = null;
-};
-
 export const getCredentials = () => current;
