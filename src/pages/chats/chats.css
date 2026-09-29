@@ -6,7 +6,9 @@
     top: 1.5vh;
     background-color: #fff;
     z-index: 1;
-    border-radius: 15px
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .chats__new {
@@ -31,4 +33,13 @@
 .chats__list {
     margin: 10px;
     position: relative;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-bottom: calc(48px + 1vh);
+}
+
+.chats__error {
+    color: #e53935;
+    font-size: 14px;
 }

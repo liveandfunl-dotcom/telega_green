@@ -12,7 +12,6 @@
 }
 
 .new-contact__dialog {
-    box-sizing: border-box;
     width: min(460px, calc(100vw - 32px));
     padding: 20px 20px 12px;
     border-radius: 24px;
